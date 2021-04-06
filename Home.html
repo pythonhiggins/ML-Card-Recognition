@@ -1,0 +1,170 @@
+<html><head>
+  <meta charset="UTF-8">
+  <title>Webcam Image Classification using a pre-trained customized model and p5.js</title>
+  <script src="p5.min.js"></script>
+  <script src="p5.dom.min.js"></script>
+  <script src="ml5.min.js" type="text/javascript"></script>
+  <link href="./main.97292821.css" rel="stylesheet">
+</head>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+/* Style the header */
+.header {
+  background-color: #f1f1f1;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Style the top navigation bar */
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+/* Style the topnav links */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Create three unequal columns that floats next to each other */
+.column {
+  float: left;
+  padding: 10px;
+}
+
+/* Left and right column */
+.column.side {
+  width: 25%;
+}
+
+/* Middle column */
+.column.middle {
+  width: 50%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column.side, .column.middle {
+    width: 100%;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+h1 { color: #7c795d; font-family: 'Trocchi', serif; font-size: 45px; font-weight: normal; line-height: 48px; margin: 0; }
+
+
+h2 { color: #7c795d; font-family: 'Source Sans Pro', sans-serif; font-size: 28px; font-weight: 400; line-height: 32px; margin: 0 0 24px; }
+
+
+.subheader { font-size: 26px; font-weight: 300; color: #ffcc66; margin: 0 0 24px; }
+
+
+p { color: #4c4a37; font-family: 'Source Sans Pro', sans-serif; font-size: 18px; text-indent: 40px; line-height: 32px; margin: 0 0 24px; }
+
+
+a { color: #ff9900; background: #ffcc66; text-decoration: none; }
+
+
+a:hover { color: #ffcc66 }
+
+.negative-indent {
+    margin-left: 40px;
+    text-indent: -40px;
+}
+
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Image Recognition</h1>
+  <p>A card recognition project with teachable machine, p5.js, tensorflow & python</p>
+</div>
+
+<div class="topnav">
+  <a href="#">Home</a>
+  <a href="index.html">Card Classifier</a>
+  <a href="Card Counting.html">Card Counting</a>
+</div>
+
+<div class="row">
+
+  
+
+	</br></br>
+    <h1>Card Image Recognition</h1>
+    <p> 
+
+In order to recognize the cards, a model was trained on a sample of over 800 playing cards which were manually labelled. Thanks to Teachable Machine makes this process is easy, intuitive and best of all, free!
+ </br></br>
+The sample of cards was created from a combination of a Github repository (16 photos of each rank in identical backgrounds), and user webcam photos (50+ of each rank taken in various lighting). The sample does not provide a 100% confidence each time.
+</p>
+<h1>Card Counting</h1>
+</br>
+<p>
+The card counting capability is carried out through a python function. The function takes an input of card values and adds them to the tally. The python function should next be integrated with the js file to pass values which are over 95% confident (over 1 second intervals)
+</br></br>
+</p>
+<h1>Credits</h1>
+</br>
+<p>
+Credits to Google's teachable machine for their easy to use machine learning software, Mental Floss for the card counting explanation, Daniel Schiffman for the most energetic tutorials on the web, Zed Shaw for his witty and in-depth "Learn Python the Hard Way", the many amazing python and js libraries and tools this project which made this project possible: p5, ml5, imgaug, p5.js web editor, and my classmates and Marti at UPF for the help given along the way
+
+
+
+    
+
+
+  </div>
+
+
+
+
+</div>
+  
+</body>
+</html>

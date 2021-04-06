@@ -1,0 +1,183 @@
+<html><head>
+  <meta charset="UTF-8">
+  <title>Webcam Image Classification using a pre-trained customized model and p5.js</title>
+  <script src="p5.min.js"></script>
+  <script src="p5.dom.min.js"></script>
+  <script src="ml5.min.js" type="text/javascript"></script>
+  <link href="./main.97292821.css" rel="stylesheet">
+</head>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+/* Style the header */
+.header {
+  background-color: #f1f1f1;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Style the top navigation bar */
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+/* Style the topnav links */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Create three unequal columns that floats next to each other */
+.column {
+  float: left;
+  padding: 10px;
+}
+
+/* Left and right column */
+.column.side {
+  width: 25%;
+}
+
+/* Middle column */
+.column.middle {
+  width: 50%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column.side, .column.middle {
+    width: 100%;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+h1 { color: #7c795d; font-family: 'Trocchi', serif; font-size: 45px; font-weight: normal; line-height: 48px; margin: 0; }
+
+
+h2 { color: #7c795d; font-family: 'Source Sans Pro', sans-serif; font-size: 28px; font-weight: 400; line-height: 32px; margin: 0 0 24px; }
+
+
+.subheader { font-size: 26px; font-weight: 300; color: #ffcc66; margin: 0 0 24px; }
+
+
+p { color: #4c4a37; font-family: 'Source Sans Pro', sans-serif; font-size: 18px; text-indent: 40px; line-height: 32px; margin: 0 0 24px; }
+
+
+a { color: #ff9900; background: #ffcc66; text-decoration: none; }
+
+
+a:hover { color: #ffcc66 }
+
+.negative-indent {
+    margin-left: 40px;
+    text-indent: -40px;
+}
+
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Image Recognition</h1>
+  <p>A card recognition project with teachable machine, p5.js, tensorflow & python</p>
+</div>
+
+<div class="topnav">
+  <a href="Home.html">Home</a>
+  <a href="index.html">Card Classifier</a>
+  <a href="#">Card Counting</a>
+</div>
+
+<div class="row">
+
+  
+
+	
+
+
+<! credit to Mental Floss for the card counting explanation: https://www.mentalfloss.com/article/56506/how-does-counting-cards-blackjack-work>
+</br></br>
+    <h1>How Does Counting Cards in Blackjack Work?</h1>
+    <p> 
+</br></br>
+Owning a casino isn't much of a gamble. In almost every game, the casino has a statistical advantage—so for every one gambler raking it in, there are more than enough people leaving with empty pockets to net an enormous profit. But between the rolling dice and spinning roulette wheels, there’s one game—if played with the right strategy—where the odds are actually in the gambler’s favor. That game is blackjack. You just have to learn how to count cards.
+</br> </br>
+Blackjack, also called twenty-one, is one of the most popular casino games in the world. In this push-your-luck card game, you attempt to beat the dealer at getting as close to 21 points worth of cards. While the dealer always has to follow a simple set of betting rules, the gambler is free to pursue the best strategy available. And despite popular belief, with enough practice, anyone can count cards in blackjack; you don’t have to be a genius, and although it’s called "counting cards," you’re not memorizing which cards have been played. Here’s why and how it works.
+</br> </br>
+<h2>The Theory</h2>
+<p>
+</br>
+In a normal game of blackjack played with a single deck of cards, the "house edge"—the statistical likelihood that the casino will come out on top—is essentially nil. That means that if you play according to the very best strategy available (by memorizing and following the optimal method), in the long-run you’ll break even. That doesn’t sound like much, but blackjack is the only table-game that can claim such advantageous odds. And it’s these odds that make blackjack ripe for card counting.
+</br></br>
+In simple terms, "counting cards" just means keeping a tally of certain cards while the dealer burns through the deck. By keeping that tally—although you still play with the same strategy as before—you know approximately which cards are more likely to come up for both you and the dealer in the next hand.
+</br></br>
+And that little bit of information can tell you when to bet big, or when to bet small. Having more low-numbered cards left in the deck is bad. It means you’re less likely to get a blackjack (21 points on your first two cards, which pays a bonus) and the dealer is less likely to "bust"—get over 21 points worth of cards—due to the dealer’s rigid betting rules. And more high-numbered cards are good for the opposite reasons.
+</br></br>
+If played correctly, counting cards improves your odds by around 1 percent. Again, that doesn’t sound like much, but over many, many hours and even more hands of cards, you can count on netting in the green.</p>
+
+</p>
+</br></br>
+
+<h2>The Machine Learning Element</h2>
+<p>
+</br>
+In the context of card counting, the idea is for the card classifier to be used in tandem with the python card counting script to enable the machine to count the cards for the player.  
+
+</br></br>
+Although not an idea which would be technologically practical or indeed ethical to use in casinos, this open source example of a card recognition model and card counting machine model shows the increasing accesssibility of machine learning models created using only free software and basic technology.s
+
+</p>
+
+
+  </div>
+
+
+
+
+</div>
+  
+</body>
+</html>
