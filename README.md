@@ -1,5 +1,8 @@
 # ML-Card-Recognition
 Run index.html
 Python/Javascript/Tensorflow ML within HTML
-Recognize cards from a standard deck
-Challenge from a machine learning course at UPF
+</br>
+Recognizes cards from a standard deck
+</br>
+ML elements hosted on Google's Teachable Machine server
+
